@@ -1,5 +1,5 @@
 fn main(){
-    println!("{}", B());
+    println!("{}", A());
 }
 
 fn A()-> f64 { //擴充
@@ -11,9 +11,9 @@ fn A()-> f64 { //擴充
         let mut a = 0f64;
         for k in 0..49{
             let _k = k as f64;
-        a += (_k+1f64)*((1f64-4f64*average).powf(_k)) * average* (4 - n) as f64;
+        a += (_k+1f64)*((1f64-((4 - n) as f64)*average).powf(_k)) * average* (4 - n) as f64;
 
-        }    a += (1f64-4f64*average).powf(49f64)*50f64;
+        }    a += (1f64-((4 - n) as f64)*average).powf(49f64)*50f64;
         a
     }
     (0..4).map(|n|draw(n, average)).collect::<Vec<_>>().into_iter().sum()
@@ -34,5 +34,3 @@ fn B() -> f64{ //精準
 //    a += (1f64-(3f64*alpha + beta)).powf(49f64)*50f64;
     a
 }//124
-
-
